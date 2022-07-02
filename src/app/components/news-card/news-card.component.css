@@ -7,6 +7,11 @@
   padding: 0 0 0 2rem;
 }
 
+.news-card:hover{
+  opacity: 0.4;
+  cursor: pointer;
+}
+
 .news-card>.content{
   display: flex;
   flex-direction: column;
@@ -31,6 +36,7 @@
   padding: 2rem;
   background-color: var(--black-3-rgba);
   border-radius: 0 6px 6px 0;
+  cursor: default;
 }
 
 .clock-icon{
