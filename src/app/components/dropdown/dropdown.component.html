@@ -1,0 +1,17 @@
+<div (click)="show()" class="dropdown-wrapper">
+  <div #selectInput class="label-selected">
+    <img class="img-value-selected" *ngIf="value" [src]="'../../../assets/images/png/'+value?.icon+'.png'" src="" alt="">
+    <input [ngModel]="value?.label" (click)="$event.stopPropagation()" [placeholder]="placeholder" readonly type="text">
+    <img class="dropdown-icon" src="../../../assets/images/svg/angle-down-icon.svg" alt="">
+  </div>
+  <ng-container *ngIf="overlayVisible && options && options.length > 0">
+      <ul class="dropdown-list">
+        <ng-container *ngFor="let opt of options">
+          <li (click)="onChangeSelect(opt)" class="item-list">
+            <img class="item-icon" *ngIf="opt.icon" [src]="'../../../assets/images/png/'+opt.icon+'.png'" alt="">
+            <span>{{opt.label}}</span>
+          </li>
+        </ng-container>
+      </ul>
+  </ng-container>
+</div>

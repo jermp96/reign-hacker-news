@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'reign-hacker-news';
+  public optionSelected?: string;
+
+  constructor() {
+    this.optionSelected = 'left';
+  }
+
+  onSetOptionSelected(event: string):void{
+    this.optionSelected = event;
+  }
 }

@@ -1,10 +1,7 @@
 <app-navbar></app-navbar>
 <div class="container mt-8">
   <div class="news-container">
-    <div style="display: flex;">
-      <button>All</button>
-      <button>My faves</button>
-    </div>
+    <app-select-button (changeSelect)="onSetOptionSelected($event)" ></app-select-button>
     <app-news-component></app-news-component>
   </div>
 </div>

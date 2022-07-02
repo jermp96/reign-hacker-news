@@ -1,4 +1,5 @@
-<div class="grid-container">
+<app-dropdown (changeSelect)="onChangeSelection($event)" [options]="options" [placeholder]="'Select your news'"></app-dropdown>
+<div class="grid-container mt-2">
   <app-news-card></app-news-card>
   <app-news-card></app-news-card>
   <app-news-card></app-news-card>

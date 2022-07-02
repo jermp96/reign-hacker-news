@@ -1,14 +1,23 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 
-import {NavbarComponent, NewsCardComponent} from '../app/components';
-import { NewsComponent } from '../app/pages';
+import {
+  NavbarComponent,
+  NewsCardComponent,
+  SelectButtonComponent,
+  DropdownComponent
+} from './components';
+
+import {NewsComponent} from './pages';
+import {FormsModule} from "@angular/forms";
 
 const SHARED = [
   NavbarComponent,
-  NewsCardComponent
+  NewsCardComponent,
+  SelectButtonComponent,
+  DropdownComponent
 ];
 
 const PAGES = [
@@ -22,7 +31,8 @@ const PAGES = [
     ...PAGES
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
