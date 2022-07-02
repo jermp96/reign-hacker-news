@@ -2,7 +2,7 @@
   <div class="content">
     <span class="text-grayed time">
       <img class="clock-icon" src="../../../assets/images/svg/clock.svg">
-      <span>3 hours ago by author</span>
+      <span>{{newsItem?.created_at! | difftime}} by {{newsItem?.author}}</span>
     </span>
     <p>{{newsItem?.story_title}}</p>
   </div>

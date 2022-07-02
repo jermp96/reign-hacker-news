@@ -1,0 +1,1 @@
+export {DiffTimePipe} from './diff-time.pipe'

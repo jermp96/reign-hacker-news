@@ -10,6 +10,10 @@ import {
   DropdownComponent
 } from './shared/components';
 
+import {
+  DiffTimePipe
+} from './shared/pipes';
+
 import {NewsComponent} from './pages';
 import {FormsModule} from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
@@ -25,11 +29,16 @@ const PAGES = [
   NewsComponent
 ];
 
+const PIPES = [
+  DiffTimePipe
+];
+
 @NgModule({
   declarations: [
     AppComponent,
     ...SHARED,
-    ...PAGES
+    ...PAGES,
+    ...PIPES
   ],
   imports: [
     BrowserModule,
