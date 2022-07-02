@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {environment} from '../../environments/environment'
-import { NewsResponse } from '../models/news-response.model';
+import { NewsResponse } from '../shared/models/news-response.model';
 
 const apiUrl = environment.apiUrl;
 @Injectable({
@@ -21,4 +21,6 @@ export class NewsService {
     }});
     return this.httpService.get<NewsResponse>(`${apiUrl}`, {params: params})
   }
+
+  
 }

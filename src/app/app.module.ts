@@ -8,7 +8,7 @@ import {
   NewsCardComponent,
   SelectButtonComponent,
   DropdownComponent
-} from './components';
+} from './shared/components';
 
 import {NewsComponent} from './pages';
 import {FormsModule} from "@angular/forms";
