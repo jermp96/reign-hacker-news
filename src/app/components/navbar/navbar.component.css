@@ -1,0 +1,9 @@
+.nav {
+  box-shadow: var(--elevation-2);
+  background-image: linear-gradient(to bottom, var(--gray-2) -32%, var(--white) 124%);
+  position: relative;
+  min-height: 8rem;
+  display: flex;
+  align-items: center;
+  padding: 1rem 1rem 1rem 8rem;
+}

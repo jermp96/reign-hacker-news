@@ -1,0 +1,20 @@
+.baskervville-font{
+  font-family: var(--title-font-family);
+}
+
+.roboto-font{
+  font-family: var(--main-font-family)
+}
+
+.container{
+  width: 80%;
+  margin: auto;
+}
+
+.text-grayed{
+  color: var(--black-1);
+}
+
+.mt-8{
+  margin-top: 8rem;
+}
