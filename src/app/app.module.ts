@@ -12,6 +12,7 @@ import {
 
 import {NewsComponent} from './pages';
 import {FormsModule} from "@angular/forms";
+import { HttpClientModule } from '@angular/common/http';
 
 const SHARED = [
   NavbarComponent,
@@ -32,7 +33,8 @@ const PAGES = [
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

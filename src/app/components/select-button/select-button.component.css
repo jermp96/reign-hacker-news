@@ -1,0 +1,30 @@
+.select-button{
+  display: flex;
+  justify-content: center;
+}
+button.left{
+  border-radius: 2px 0 0 2px;
+}
+
+button.right{
+  border-radius: 0 2px 2px 0;
+}
+.select-button>button{
+  border: 1px solid var(--gray-3);
+  background: var(--gray-1);
+  padding: 0.5rem 1rem;
+  width: 6rem;
+}
+
+.select-button>.active{
+  border-bottom: 1px solid var(--blue);
+  border-top: 1px solid var(--blue);
+}
+
+.select-button>.left.active{
+  border-left: 1px solid var(--blue);
+}
+
+.select-button>.right.active{
+  border-right: 1px solid var(--blue);
+}

@@ -1,8 +1,9 @@
 <app-dropdown (changeSelect)="onChangeSelection($event)" [options]="options" [placeholder]="'Select your news'"></app-dropdown>
-<div class="grid-container mt-2">
-  <app-news-card></app-news-card>
-  <app-news-card></app-news-card>
-  <app-news-card></app-news-card>
-  <app-news-card></app-news-card>
-  <app-news-card></app-news-card>
-</div>
+
+<ng-container *ngIf="newsList && newsList?.length! > 0">
+    <div class="grid-container mt-2">
+      <ng-container *ngFor="let item of newsList">
+        <app-news-card [newsItem]="item"></app-news-card>
+      </ng-container>
+    </div>
+</ng-container>

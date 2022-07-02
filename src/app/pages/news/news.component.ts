@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Option} from "../../models/option";
+import { News } from 'src/app/models/news.model';
+import {Option} from "../../models/option.model";
+import {NewsService} from "../../services/news.service";
 
 @Component({
   selector: 'app-news-component',
@@ -9,7 +11,15 @@ import {Option} from "../../models/option";
 export class NewsComponent implements OnInit {
   public options: Option[];
   public optionSelected?: Option;
-  constructor() {
+
+  public newsList?: News[] = [];
+
+  // pagination
+  public page?: number = 0;
+  public limitPages?: number;
+  public pageSize: number = 10;
+
+  constructor(private newsService: NewsService) {
     this.options = [
       {icon: 'icon-a', label: 'Angular', value: 'angular'},
       {icon: 'icon-r', label: 'Reactjs', value: 'reacts'},
@@ -20,6 +30,19 @@ export class NewsComponent implements OnInit {
   ngOnInit() { }
 
   onChangeSelection(event: Option):void{
-    console.log(event);
+    this.getNews(event.value, this.page!);
+  }
+
+  getNews(type: string, page: number) {
+    this.newsService.getNews(type, page, this.pageSize).subscribe({
+      next: (res) => {
+        this.newsList = res.hits;
+        this.limitPages = res.nbPages;
+        console.log(this.newsList);
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    })
   }
 }
