@@ -13,6 +13,7 @@ export class DropdownComponent implements OnInit {
   @Output() changeSelect = new EventEmitter<Option>();
   @Input() options?: Option[];
   @Input() placeholder?:string;
+  @Input() filterSaved?: Option;
 
   public value?:Option;
   public overlayVisible?: boolean;
@@ -26,6 +27,9 @@ export class DropdownComponent implements OnInit {
   }
 
   ngOnInit():void {
+    if(this.filterSaved){
+      this.value = this.filterSaved;
+    }
   }
 
   show():void {

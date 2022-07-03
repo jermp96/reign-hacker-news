@@ -4,6 +4,7 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 import {environment} from '../../environments/environment'
 import { NewsResponse } from '../shared/models/news-response.model';
 import { News } from '../shared/models/news.model';
+import { Option } from '../shared/models/option.model';
 
 const apiUrl = environment.apiUrl;
 @Injectable({
@@ -30,6 +31,22 @@ export class NewsService {
       hitsPerPage: pageSize.toString()
     }});
     return this.httpService.get<NewsResponse>(`${apiUrl}`, {params: params})
+  }
+
+  /**
+   * 
+   * @param option: Option
+   */
+  saveFilter(option: Option):void {
+    localStorage.setItem('filter', JSON.stringify(option));
+  }
+
+  /**
+   * 
+   * @returns option: Option
+   */
+  getFilter():Option {
+    return JSON.parse(localStorage.getItem('filter') ?? null!);
   }
 
   /**

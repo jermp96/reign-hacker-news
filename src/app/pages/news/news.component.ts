@@ -32,10 +32,12 @@ export class NewsComponent implements OnInit {
 
   ngOnInit():void {
     this.getFavorites();
+    this.getInitData();
   }
 
   onChangeSelection(event: Option):void {
     this.optionSelected = event;
+    this.newsService.saveFilter(event);
     this.newsList = [];
     this.page = 0;
     this.getNews(event.value, this.page!);
@@ -66,14 +68,15 @@ export class NewsComponent implements OnInit {
     }
   }
 
-  onSrollDown():void {
-    if(this.newsList?.length! <= this.limitItems!){
-      this.getNews(this.optionSelected?.value!, this.page!);
-    }
-  }
-
   getFavorites():void {
     this.favorites = this.newsService.getFavorites();
+  }
+
+  getInitData():void {
+    this.optionSelected = this.newsService.getFilter();
+    if(this.optionSelected){
+      this.getNews(this.optionSelected.value, this.page!);
+    }
   }
 
   saveFavorites(event: News):void {
@@ -85,5 +88,11 @@ export class NewsComponent implements OnInit {
     const idx = this.favorites?.indexOf(event);
     this.favorites?.splice(idx!, 1);
     this.newsService.saveFavorite(this.favorites!);
+  }
+
+  onSrollDown():void {
+    if(this.newsList?.length! <= this.limitItems!){
+      this.getNews(this.optionSelected?.value!, this.page!);
+    }
   }
 }

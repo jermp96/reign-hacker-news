@@ -1,4 +1,4 @@
-<app-dropdown (changeSelect)="onChangeSelection($event)" [options]="options" [placeholder]="'Select your news'"></app-dropdown>
+<app-dropdown [filterSaved]="optionSelected" (changeSelect)="onChangeSelection($event)" [options]="options" [placeholder]="'Select your news'"></app-dropdown>
 
 <ng-container *ngIf="newsList && newsList?.length! > 0">
     <div class="grid-container mt-2 mb-2">
