@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { News } from 'src/app/shared/models/news.model';
 import {Option} from "../../shared/models/option.model";
 import {NewsService} from "../../services/news.service";
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-news-component',
@@ -44,9 +45,11 @@ export class NewsComponent implements OnInit {
   }
 
   getNews(type: string, page: number) {
-    this.newsService.getNews(type, page, this.pageSize).subscribe({
+    this.newsService.getNews(type, page, this.pageSize)
+    .subscribe({
       next: (res) => {
-        this.newsList = [...this.newsList!, ...res.hits];
+        const toAdd = res.hits.filter(el => el.author !== null && el.story_title !== null && el.story_url !== null);
+        this.newsList = [...this.newsList!, ...toAdd];
         this.onSetFavorites();
         this.limitItems = res.nbHits;
         this.page!++;
