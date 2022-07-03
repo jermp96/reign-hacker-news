@@ -23,8 +23,8 @@ src
 | -services
 | -shared
 |	 -components
-|		-dropdown
-|		-navbar
+|	  -dropdown
+|   -navbar
 |		-news-card
 |		-select-button
 |		-index.ts
