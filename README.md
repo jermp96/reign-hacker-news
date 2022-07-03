@@ -18,22 +18,22 @@ This small app was developed with the latest version of the **Angular framework*
 src
 |-app
 | -pages
-|	 -favorites
-|	 -news
+|  -favorites
+|  -news
 | -services
 | -shared
-|	 -components
-|		-dropdown
-|		-navbar
-|		-news-card
-|		-select-button
-|		-index.ts
-|	-directives
-|		-models
-|		-pipes
+|  -components
+|   -dropdown
+|   -navbar
+|   -news-card
+|   -select-button
+|   -index.ts
+| -directives
+|  -models
+|  -pipes
 |-assets
-|	-images
-|	-styles
+| -images
+| -styles
 |-app.component.ts
 |-app.component.html
 |-environment
