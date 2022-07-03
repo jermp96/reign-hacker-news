@@ -8,10 +8,10 @@
   </div>
   <div class="btn-favorite">
     <ng-container *ngIf="newsItem?.isFavorite; else fav">
-      <img (click)="$event.stopPropagation(); addFavorite()" class="fav-icon" src="../../../assets/images/svg/favorite-blank.svg">
+      <img (click)="$event.stopPropagation(); addFavorite()" class="fav-icon" src="../../../assets/images/svg/favorite-full.svg">
     </ng-container>
     <ng-template #fav>
-      <img (click)="$event.stopPropagation(); removeFavorite()" class="fav-icon" src="../../../assets/images/svg/favorite-fill.svg">
+      <img (click)="$event.stopPropagation(); removeFavorite()" class="fav-icon" src="../../../assets/images/svg/favorite-blank.svg">
     </ng-template>
   </div>
 </div>
