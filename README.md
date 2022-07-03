@@ -32,8 +32,8 @@ src
 |  -models
 |  -pipes
 |-assets
-|	-images
-|	-styles
+| -images
+| -styles
 |-app.component.ts
 |-app.component.html
 |-environment
