@@ -27,22 +27,29 @@ export class NewsComponent implements OnInit {
     ];
   }
 
-  ngOnInit() { }
+  ngOnInit():void { }
 
-  onChangeSelection(event: Option):void{
+  onChangeSelection(event: Option):void {
+    this.optionSelected = event;
     this.getNews(event.value, this.page!);
   }
 
   getNews(type: string, page: number) {
     this.newsService.getNews(type, page, this.pageSize).subscribe({
       next: (res) => {
-        this.newsList = res.hits;
+        this.newsList = [...this.newsList!, ...res.hits];
         this.limitPages = res.nbPages;
-        console.log(this.newsList);
+        this.page!++;
       },
       error: (err) => {
         console.error(err);
       }
     })
+  }
+
+  onSrollDown():void {
+    if(this.page! <= this.limitPages!){
+      this.getNews(this.optionSelected?.value!, this.page!);
+    }
   }
 }

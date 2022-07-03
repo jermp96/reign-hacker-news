@@ -7,6 +7,11 @@
     <p>{{newsItem?.story_title}}</p>
   </div>
   <div class="btn-favorite">
-    <img class="fav-icon" src="../../../assets/images/svg/favorite-blank.svg">
+    <ng-container *ngIf="newsItem?.isFavorite; else fav">
+      <img (click)="$event.stopPropagation(); addFavorite()" class="fav-icon" src="../../../assets/images/svg/favorite-blank.svg">
+    </ng-container>
+    <ng-template #fav>
+      <img (click)="$event.stopPropagation(); removeFavorite()" class="fav-icon" src="../../../assets/images/svg/favorite-fill.svg">
+    </ng-template>
   </div>
 </div>

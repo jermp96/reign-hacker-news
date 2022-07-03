@@ -17,6 +17,7 @@ import {
 import {NewsComponent} from './pages';
 import {FormsModule} from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
+import { OnVisibleDirective } from './shared/directives';
 
 const SHARED = [
   NavbarComponent,
@@ -33,12 +34,17 @@ const PIPES = [
   DiffTimePipe
 ];
 
+const DIRECTIVES = [
+  OnVisibleDirective
+];
+
 @NgModule({
   declarations: [
     AppComponent,
     ...SHARED,
     ...PAGES,
-    ...PIPES
+    ...PIPES,
+    ...DIRECTIVES
   ],
   imports: [
     BrowserModule,

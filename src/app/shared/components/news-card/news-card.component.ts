@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import { NewsService } from 'src/app/services/news.service';
 import { News } from 'src/app/shared/models/news.model';
 
 @Component({
@@ -8,7 +9,16 @@ import { News } from 'src/app/shared/models/news.model';
 })
 export class NewsCardComponent implements OnInit {
   @Input() newsItem?: News;
-  constructor() {}
 
-  ngOnInit() {}
+  constructor(public newsService: NewsService) {}
+
+  ngOnInit():void {}
+
+  addFavorite():void {
+    
+  }
+
+  removeFavorite():void {
+
+  }
 }

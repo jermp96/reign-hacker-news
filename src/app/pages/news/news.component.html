@@ -1,9 +1,10 @@
 <app-dropdown (changeSelect)="onChangeSelection($event)" [options]="options" [placeholder]="'Select your news'"></app-dropdown>
 
 <ng-container *ngIf="newsList && newsList?.length! > 0">
-    <div class="grid-container mt-2">
+    <div class="grid-container mt-2 mb-2">
       <ng-container *ngFor="let item of newsList">
         <app-news-card [newsItem]="item"></app-news-card>
       </ng-container>
     </div>
+    <div (onVisible)="onSrollDown()"></div>
 </ng-container>
