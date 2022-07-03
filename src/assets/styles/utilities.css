@@ -15,6 +15,10 @@
   color: var(--black-1);
 }
 
+.text-center{
+  text-align: center;
+}
+
 .mt-8{
   margin-top: 8rem;
 }

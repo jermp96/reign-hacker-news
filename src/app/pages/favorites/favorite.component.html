@@ -1,7 +1,10 @@
-<ng-container *ngIf="favorites && favorites.length > 0">
+<ng-container *ngIf="favorites && favorites.length > 0; else noFav">
   <div class="grid-container mt-2 mb-2">
     <ng-container *ngFor="let item of favorites">
       <app-news-card (removeFavorite)="removeFavorites($event)" [newsItem]="item"></app-news-card>
     </ng-container>
   </div>
 </ng-container>
+<ng-template #noFav>
+  <h4 class="text-center">You did not have added favorites yet</h4>
+</ng-template>

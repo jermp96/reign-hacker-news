@@ -47,3 +47,20 @@
   height: 22px;
   width: 24px;
 }
+
+@media (max-width: 575.98px) { 
+  .news-card{
+    padding: 0 0 0 1rem;
+  }
+  .news-card>.content>span{
+    font-size: 0.75rem;
+  }
+  .clock-icon{
+    height: 12px;
+    width: 12px;
+  }
+
+  .news-card>.content>p{
+    font-size: 0.85rem;
+  }
+}

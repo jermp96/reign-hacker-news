@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { News } from 'src/app/shared/models/news.model';
 import {Option} from "../../shared/models/option.model";
 import {NewsService} from "../../services/news.service";
-import { filter } from 'rxjs';
+import { filter, map } from 'rxjs';
+import { NewsResponse } from 'src/app/shared/models/news-response.model';
 
 @Component({
   selector: 'app-news-component',
@@ -36,6 +37,10 @@ export class NewsComponent implements OnInit {
     this.getInitData();
   }
 
+  /**
+   * changing filter
+   * @param event 
+   */
   onChangeSelection(event: Option):void {
     this.optionSelected = event;
     this.newsService.saveFilter(event);
@@ -44,13 +49,16 @@ export class NewsComponent implements OnInit {
     this.getNews(event.value, this.page!);
   }
 
+  /**
+   * @param type:  
+   * @param page 
+   */
   getNews(type: string, page: number) {
-    this.newsService.getNews(type, page, this.pageSize)
-    .subscribe({
+    this.newsService.getNews(type, page, this.pageSize).subscribe({
       next: (res) => {
-        const toAdd = res.hits.filter(el => el.author !== null && el.story_title !== null && el.story_url !== null);
+        const toAdd = this.cleanResponse(res);
         this.newsList = [...this.newsList!, ...toAdd];
-        this.onSetFavorites();
+        this.setFavorites();
         this.limitItems = res.nbHits;
         this.page!++;
       },
@@ -60,7 +68,20 @@ export class NewsComponent implements OnInit {
     })
   }
 
-  onSetFavorites():void{
+  /**
+   * to clean API hits array response
+   * @param res: NewsResponse 
+   * @returns News[]
+   */
+  cleanResponse(res: NewsResponse): News[] {
+    return res.hits.filter(el => el.author !== null && el.story_title !== null &&
+      el.story_url !== null && el.created_at !== null);
+  }
+
+  /**
+   * set as favorite each item news regard the favorites list
+   */
+  setFavorites():void{
     if(this.favorites && this.favorites.length > 0) {
       this.favorites?.forEach(fv => {
         const exist = this.newsList!.find(n => n.objectID === fv.objectID);
@@ -71,10 +92,16 @@ export class NewsComponent implements OnInit {
     }
   }
 
+  /**
+   * get the favorites stored
+   */
   getFavorites():void {
     this.favorites = this.newsService.getFavorites();
   }
 
+  /**
+   * get news if there is a filer stored
+   */
   getInitData():void {
     this.optionSelected = this.newsService.getFilter();
     if(this.optionSelected){
@@ -93,7 +120,7 @@ export class NewsComponent implements OnInit {
     this.newsService.saveFavorite(this.favorites!);
   }
 
-  onSrollDown():void {
+  scrollDown():void {
     if(this.newsList?.length! <= this.limitItems!){
       this.getNews(this.optionSelected?.value!, this.page!);
     }

@@ -7,3 +7,9 @@
   align-items: center;
   padding: 1rem 1rem 1rem 8rem;
 }
+
+@media (max-width: 575.98px) {
+  .nav{
+    padding: 1rem;
+  }
+}
