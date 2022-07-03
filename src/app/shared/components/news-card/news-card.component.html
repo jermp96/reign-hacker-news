@@ -1,4 +1,6 @@
-<div class="news-card">
+<div [ngClass]="{'cursor-pointer': newsItem?.story_url, 'cursor-default': !newsItem?.story_url}"
+(click)="onGoToUrl()"
+class="news-card">
   <div class="content">
     <span class="text-grayed time">
       <img class="clock-icon" src="../../../assets/images/svg/clock.svg">

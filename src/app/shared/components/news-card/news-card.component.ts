@@ -26,4 +26,10 @@ export class NewsCardComponent implements OnInit {
     this.newsItem!.isFavorite = false;
     this.removeFavorite.emit(this.newsItem);
   }
+
+  onGoToUrl():void{
+    if(this.newsItem?.story_url){
+     window.open(this.newsItem.story_url, '_blank');
+    }
+  }
 }
