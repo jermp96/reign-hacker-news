@@ -2,6 +2,13 @@
 <div class="container mt-8">
   <div class="news-container">
     <app-select-button (changeSelect)="onSetOptionSelected($event)" ></app-select-button>
-    <app-news-component></app-news-component>
+    <div [ngSwitch]="optionSelected">
+      <div *ngSwitchCase="'left'">
+        <app-news-component></app-news-component>
+      </div>
+      <div *ngSwitchCase="'right'">
+        <app-favorites></app-favorites>
+      </div>
+    </div>
   </div>
 </div>

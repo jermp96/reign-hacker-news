@@ -14,7 +14,7 @@ import {
   DiffTimePipe
 } from './shared/pipes';
 
-import {NewsComponent} from './pages';
+import {FavoritesComponent, NewsComponent} from './pages';
 import {FormsModule} from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 import { OnVisibleDirective } from './shared/directives';
@@ -27,7 +27,8 @@ const SHARED = [
 ];
 
 const PAGES = [
-  NewsComponent
+  NewsComponent,
+  FavoritesComponent
 ];
 
 const PIPES = [
