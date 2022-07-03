@@ -1,27 +1,45 @@
-# ReignHackerNews
+## Reign - Front End Developer Challenge
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.1.
+This small app was developed with the latest version of the **Angular framework**.
 
-## Development server
+##### Functionality
+
+- The selected filter persists on the local storage
+- The favorited posts persist on the local storage
+- The web app works as a responsive web application
+- Pagination as infinite scroll.
+- When clicking on the row, a new tab open with the link of the post (story_url)
+- The click on the “like button” does not trigger the opening of the post URL link
+-  When hovering on the row, opacity applied to the entire row and its children (texts, icons, like button, etc)
+
+##### Directory
+
+```
+src
+|-app
+| -pages
+|		-favorites
+|		-news
+| -services
+|	-shared
+|		-components
+|			-dropdown
+|			-navbar
+|			-news-card
+|			-select-button
+|			-index.ts
+|		-directives
+|		-models
+|		-pipes
+|-assets
+|	-images
+|	-styles
+|-app.component.ts
+|-app.component.html
+|-environment
+
+```
+
+##### Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
