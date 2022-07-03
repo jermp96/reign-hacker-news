@@ -5,5 +5,6 @@ export interface News{
   created_at: string;
   created_at_i: number;
   story_id?: number;
+  objectID: string;
   isFavorite: boolean;
 }

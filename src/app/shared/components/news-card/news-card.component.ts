@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { NewsService } from 'src/app/services/news.service';
 import { News } from 'src/app/shared/models/news.model';
 
@@ -8,17 +8,22 @@ import { News } from 'src/app/shared/models/news.model';
   styleUrls: ['./news-card.component.css']
 })
 export class NewsCardComponent implements OnInit {
+  @Output() addFavorite = new EventEmitter<News>();
+  @Output() removeFavorite = new EventEmitter<News>();
   @Input() newsItem?: News;
+
 
   constructor(public newsService: NewsService) {}
 
   ngOnInit():void {}
 
-  addFavorite():void {
-    
+  onAddFavorite():void {
+    this.newsItem!.isFavorite = true;
+    this.addFavorite.emit(this.newsItem);
   }
 
-  removeFavorite():void {
-
+  onRemoveFavorite():void {
+    this.newsItem!.isFavorite = false;
+    this.removeFavorite.emit(this.newsItem);
   }
 }

@@ -3,7 +3,7 @@
 <ng-container *ngIf="newsList && newsList?.length! > 0">
     <div class="grid-container mt-2 mb-2">
       <ng-container *ngFor="let item of newsList">
-        <app-news-card [newsItem]="item"></app-news-card>
+        <app-news-card (addFavorite)="saveFavorites($event)" (removeFavorite)="removeFavorites($event)" [newsItem]="item"></app-news-card>
       </ng-container>
     </div>
     <div (onVisible)="onSrollDown()"></div>
