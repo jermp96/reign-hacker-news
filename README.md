@@ -1,6 +1,6 @@
 ## Reign - Front End Developer Challenge
 
-This small app was developed with the latest version of the **Angular framework**.
+This small app was developed with the latest version (v14) of the **Angular framework**.
 
 ##### Functionality
 
