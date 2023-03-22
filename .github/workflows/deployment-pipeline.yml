@@ -23,8 +23,8 @@ jobs:
       run: npm run build
     - uses: actions/upload-artifact@v2
       with:
-        name: dist
-        path: dist
+        name: doc
+        path: doc
 
   deploy:
     needs: [build]
@@ -32,8 +32,8 @@ jobs:
     steps:
       - uses: actions/download-artifact@v2
         with:
-          name: dist
-          path: dist
+          name: doc
+          path: doc
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
