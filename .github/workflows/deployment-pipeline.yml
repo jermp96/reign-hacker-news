@@ -24,8 +24,6 @@ jobs:
     needs: [build]
     runs-on: ubuntu-latest
     steps:
-      - name: Cancel Previous redundant builds
-        uses: styfle/cancel-workflow-action
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v3
         with:
