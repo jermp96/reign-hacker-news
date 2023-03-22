@@ -34,6 +34,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/reign-hackers-news/",
               "budgets": [
                 {
                   "type": "initial",
