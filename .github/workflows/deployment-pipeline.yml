@@ -36,8 +36,7 @@ jobs:
           name: docs
           path: docs
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.1
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          branch: gh-pages
-          folder: docs/reign-hacker-news
-          clean: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          destination_dir: ./docs
