@@ -11,10 +11,11 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [14.x]
 
     steps:
-    - uses: actions/checkout@v3
+    - name: checkout
+      uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
@@ -22,3 +23,16 @@ jobs:
         cache: 'npm'
     - name: Install dependencies
       run: npm install
+    - name: Build
+      run: npm run build:prod
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v3
+        with:
+          target_branch: main
+          build_dir: dist/reign-hacker-news
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
