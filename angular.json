@@ -34,7 +34,7 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "/jermp96/reign-hackers-news/",
+              "baseHref": "/",
               "budgets": [
                 {
                   "type": "initial",
