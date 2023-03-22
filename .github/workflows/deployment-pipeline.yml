@@ -20,7 +20,7 @@ jobs:
     - name: Install dependencies
       run: npm install
     - name: Building the build
-      run: npm run build
+      run: npm run build-gh-page
     - uses: actions/upload-artifact@v2
       with:
         name: docs
