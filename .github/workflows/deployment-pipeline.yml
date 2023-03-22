@@ -24,10 +24,14 @@ jobs:
     needs: [build]
     runs-on: ubuntu-latest
     steps:
+      - name: Cancel Previous redundant builds
+        uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ github.token}}
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v3
         with:
           target_branch: main
-          build_dir: doc/dist/reign-hacker-news
+          build_dir: dist/reign-hacker-news
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
