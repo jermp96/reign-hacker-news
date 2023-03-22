@@ -27,7 +27,7 @@ jobs:
       - name: Cancel Previous redundant builds
         uses: styfle/cancel-workflow-action
         with:
-          access_token: ${{ github.token}}
+          access_token: ${{ github.token }}
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v3
         with:
