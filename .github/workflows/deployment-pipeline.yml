@@ -41,5 +41,3 @@ jobs:
           branch: gh-pages
           folder: docs/reign-hacker-news
           clean: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
