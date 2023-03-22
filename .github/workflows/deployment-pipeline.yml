@@ -23,8 +23,8 @@ jobs:
       run: npm run build
     - uses: actions/upload-artifact@v2
       with:
-        name: doc
-        path: doc
+        name: docs
+        path: docs
 
   deploy:
     needs: [build]
@@ -32,11 +32,11 @@ jobs:
     steps:
       - uses: actions/download-artifact@v2
         with:
-          name: doc
-          path: doc
+          name: docs
+          path: docs
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: ./doc
+          publish_dir: ./docs
