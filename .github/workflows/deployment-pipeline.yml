@@ -18,16 +18,24 @@ jobs:
       run: npm install
     - name: Building the build
       run: npm run build
+    - uses: actions/upload-artifact@v2
+      with:
+        name: dist
+        path: dist
 
 
   deploy:
     needs: [build]
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: dist
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v3
         with:
           target_branch: main
-          build_dir: docs/reign-hacker-news
+          build_dir: dist/docs/reign-hacker-news
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
