@@ -39,6 +39,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          destination_dir: reign-hacker-news
-          publish_dir: ./docs
-          clean: true
+          destination_dir: docs/reign-hacker-news
