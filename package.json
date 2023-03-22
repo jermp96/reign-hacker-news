@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build-gh-page": "ng build -c production --output-path docs --base-href /reign-hackers-news/",
+    "build-gh-page": "ng build -c production --output-path docs --base-href /jerm96/reign-hackers-news/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
