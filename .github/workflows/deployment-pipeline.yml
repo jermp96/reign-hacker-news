@@ -28,6 +28,6 @@ jobs:
         uses: crazy-max/ghaction-github-pages@v3
         with:
           target_branch: main
-          build_dir: dist/reign-hacker-news
+          build_dir: doc/dist/reign-hacker-news
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
