@@ -20,8 +20,8 @@ jobs:
       run: npm run build
     - uses: actions/upload-artifact@v2
       with:
-        name: dist
-        path: dist
+        name: docs
+        path: docs
 
 
   deploy:
@@ -30,8 +30,8 @@ jobs:
     steps:
       - uses: actions/upload-artifact@v2
         with:
-          name: dist
-          path: dist
+          name: docs
+          path: docs
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v3
         with:
